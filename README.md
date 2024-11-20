@@ -115,4 +115,6 @@ The key bindings are:
     C-q w		os-last-error
     C-q y		os-kill-eol
     C-q DEL		os-kill-bol
-"
+
+Special thanks to user "thetemp_" on reddit for helping me set this up! :)
+
