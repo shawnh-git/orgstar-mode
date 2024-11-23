@@ -1,11 +1,14 @@
 
-;;; orgstar-mode.el --- WordStar emulation mode for GNU Emacs Org mode
+;;; orgstar-mode.el v0.02--- WordStar emulation mode for GNU Emacs Org mode
 
 ;;; Commentary:
 
 ;; This emulates WordStar, with a major mode.
 ;; Crudely hacked together from the original ws-mode.el by shawnh
+
 ;; 'which-key' package and capslock remapped to control highly recommended
+;; 'ispell' used for spellcheck
+;; 'powerthesaurus' for thesaurus functions
 
 ;;; Code:
   
@@ -69,8 +72,8 @@
   (define-key orgstar-C-k-map "\C-b" 'os-begin-block)
   (define-key orgstar-C-k-map "c" 'os-copy-block)
   (define-key orgstar-C-k-map "\C-c" 'os-copy-block)
-  (define-key orgstar-C-k-map "d" 'save-buffers-kill-emacs)
-  (define-key orgstar-C-k-map "\C-d" 'save-buffers-kill-emacs)
+  (define-key orgstar-C-k-map "d" 'dired)
+  (define-key orgstar-C-k-map "\C-d" 'dired)
   (define-key orgstar-C-k-map "f" 'find-file)
   (define-key orgstar-C-k-map "\C-f" 'find-file)
   (define-key orgstar-C-k-map "h" 'os-show-markers)
@@ -128,6 +131,7 @@
   (define-key orgstar-C-o-map "d" 'org-do-demote)
   (define-key orgstar-C-o-map "\C-d" 'org-do-demote)
   ;; o prefix for org commands
+  (define-key orgstar-C-o-map "o" :which-key "ORG")
   (define-key orgstar-C-o-map "oa" 'org-agenda)
   (define-key orgstar-C-o-map "oc" 'org-toggle-checkbox)
   (define-key orgstar-C-o-map "od" 'org-todo)
@@ -162,6 +166,8 @@
   (define-key orgstar-C-q-map "\C-d" 'org-end-of-line)
   (define-key orgstar-C-q-map "f" 'os-search)
   (define-key orgstar-C-q-map "\C-f" 'os-search)
+  (define-key orgstar-C-q-map "j" 'powerthesaurus-lookup-dwim)
+  (define-key orgstar-C-q-map "\C-j" 'powerthesaurus-lookup-dwim)
   (define-key orgstar-C-q-map "k" 'os-goto-block-end)
   (define-key orgstar-C-q-map "\C-k" 'os-goto-block-end)
   (define-key orgstar-C-q-map "l" 'ispell-buffer)
@@ -236,7 +242,7 @@ The key bindings are:
   C-k 9		os-set-marker-9
   C-k b		os-begin-block
   C-k c		os-copy-block
-  C-k d		save-buffers-kill-emacs
+  C-k d		dired
   C-k f		find-file
   C-k h		os-show-markers
   C-k i		os-indent-block
@@ -250,7 +256,7 @@ The key bindings are:
   C-k C-u	keyboard-quit
   C-k v		os-move-block
   C-k w		os-write-block
-  C-k x		kill-emacs
+  C-k x		save-buffers-kill-emacs
   C-k y		os-delete-block
 
   C-o c		orgstar-center-line
@@ -293,6 +299,7 @@ The key bindings are:
   C-q c		end-of-buffer
   C-q d		end-of-line
   C-q f		os-search
+  C-q j         powerthesaurus-lookup-dwim
   C-q k		os-to-block-end
   C-q l		os-undo
   C-q p		os-last-cursorp
