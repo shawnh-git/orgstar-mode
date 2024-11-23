@@ -1,7 +1,11 @@
 # orgstar-mode
 WordStar like keys for Emacs/Org.
 
-Works really well with which-key as a replacement for the WordStar help screens.
+Works really well with 'which-key' as a replacement for the WordStar help screens (bundled with emacs 30 afaik).
+
+'ispell' is needed for spellchecking.
+
+'powerthesaurus' package is used for thesaurus lookup etc.
 
 Download orgstar-mode.el and load in your init file to install.
 
@@ -49,7 +53,7 @@ The key bindings are:
     C-k 9		os-set-marker-9
     C-k b		os-begin-block
     C-k c		os-copy-block
-    C-k d		save-buffers-kill-emacs
+    C-k d		dired
     C-k f		find-file
     C-k h		os-show-markers
     C-k i		os-indent-block
@@ -106,8 +110,10 @@ The key bindings are:
     C-q c		end-of-buffer
     C-q d		end-of-line
     C-q f		os-search
+    C-q j		powerthesaurus-lookup-dwim
     C-q k		os-to-block-end
-    C-q l		os-undo
+    C-q l		ispell-buffer
+    C-q n		ispell-word
     C-q p		os-last-cursorp
     C-q r		beginning-of-buffer
     C-q u		undo
