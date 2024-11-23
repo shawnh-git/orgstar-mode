@@ -1,7 +1,7 @@
 # orgstar-mode
-WordStar like keys for Emacs/Org.
+WordStar like shortcut keys and editing for Emacs org mode.
 
-Works really well with 'which-key' as a replacement for the WordStar help screens (bundled with emacs 30 afaik).
+Works really well with 'which-key' as a replacement for the WordStar help screens (bundled with emacs 30).
 
 'ispell' is needed for spellchecking.
 
